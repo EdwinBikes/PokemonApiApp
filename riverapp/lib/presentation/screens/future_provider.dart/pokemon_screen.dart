@@ -13,7 +13,7 @@ class PokemonScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('pokemon $pokemonId'),
+        title: Text('Pokemon # $pokemonId'),
       ),
       body: Center(
           child: pokemonAsync.when(

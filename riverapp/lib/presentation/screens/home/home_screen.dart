@@ -23,15 +23,20 @@ class _HomeScreenView extends StatelessWidget {
     return ListView(
       children: const [
         _CustomListTile(
-          title: "State provider",
-          subTitle: "simple provider",
+          title: "Nombres Aleatorios",
+          subTitle: "State provider",
           location: "/state-provider",
         ),
         _CustomListTile(
-          title: "pokemon API",
-          subTitle: "pokemon provider",
+          title: "Nombres Pokemons API",
+          subTitle: "Future Provider",
           location: "/future-provider",
-        )
+        ),
+        _CustomListTile(
+          title: "Stream Provider",
+          subTitle: "Stream provider",
+          location: "/stream-provider",
+        ),
       ],
     );
   }

@@ -1,4 +1,5 @@
 export 'package:riverapp/presentation/screens/future_provider.dart/pokemon_screen.dart';
+export 'package:riverapp/presentation/screens/stream-provider/stream_screen.dart';
 
 export 'providers/pokemon_provider.dart';
 export 'providers/random_name_provider.dart';
