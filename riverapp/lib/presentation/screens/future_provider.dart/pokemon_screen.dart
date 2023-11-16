@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:riverapp/presentation/presentation.dart';
 
 class PokemonScreen extends ConsumerWidget {
@@ -17,7 +18,15 @@ class PokemonScreen extends ConsumerWidget {
       ),
       body: Center(
           child: pokemonAsync.when(
-              data: (value) => Text(value),
+              data: (value) => Text(
+                    value.toUpperCase(),
+                    style: GoogleFonts.pressStart2p(
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
               error: (error, stackTrace) => Text('Error: $error'),
               loading: () => const CircularProgressIndicator())),
       floatingActionButton:
