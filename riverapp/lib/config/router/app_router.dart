@@ -22,4 +22,8 @@ final appRouter = GoRouter(routes: [
     path: '/state-notifier-provider',
     builder: (context, state) => const TodosScreen(),
   ),
+  GoRoute(
+    path: '/permissions-screen',
+    builder: (context, state) => const PermissionsScreen(),
+  ),
 ]);

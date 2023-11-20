@@ -30,7 +30,7 @@ class AppTheme {
               fontWeight: FontWeight.bold,
             ),
           ),
-          titleMedium: GoogleFonts.russoOne(fontSize: 25)),
+          titleMedium: GoogleFonts.russoOne(fontSize: 15)),
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
       colorSchemeSeed: colorList[selectedColor],
       appBarTheme: const AppBarTheme(centerTitle: false));

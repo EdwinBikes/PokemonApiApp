@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '11.0'
+platform :ios, '11.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -23,20 +23,27 @@ def flutter_root
   raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
 end
 
+# Import the pod helper script
 require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
 
+# Run the Flutter iOS setup
 flutter_ios_podfile_setup
 
+# Define the target for your Flutter app
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
+  # Install iOS pods for the Flutter app
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  # Define the target for unit tests
   target 'RunnerTests' do
     inherit! :search_paths
   end
 end
 
+# Post-installation script to apply additional Flutter settings
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
