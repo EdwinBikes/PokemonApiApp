@@ -42,6 +42,19 @@ class _HomeScreenView extends StatelessWidget {
           subTitle: "State provider personalizado",
           location: "/state-notifier-provider",
         ),
+        _CustomListTile(
+          title: "Permisos de la aplicacion",
+          subTitle: "Solicitar permisos (cámara),(gps),(bluetooth)...",
+          location: "/permissions-screen",
+        ),
+        ListTile(
+          leading: Icon(Icons.web_stories_outlined),
+          title: Text('Edwin Bikes',
+              style: TextStyle(fontSize: 14, color: Colors.black)),
+          subtitle: Text('Sigueme en mis Redes',
+              style: TextStyle(fontSize: 12, color: Colors.grey)),
+          trailing: Icon(Icons.arrow_forward_ios_rounded),
+        )
       ],
     );
   }

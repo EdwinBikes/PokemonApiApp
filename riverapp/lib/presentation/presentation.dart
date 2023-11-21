@@ -1,3 +1,4 @@
+export 'providers/app_state_provider.dart';
 export 'providers/pokemon_provider.dart';
 export 'providers/random_name_provider.dart';
 export 'providers/random_names_provider.dart';
