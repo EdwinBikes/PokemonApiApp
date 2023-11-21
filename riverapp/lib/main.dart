@@ -13,6 +13,25 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // print('State: $state');
+    super.didChangeAppLifecycleState(state);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: appRouter,
