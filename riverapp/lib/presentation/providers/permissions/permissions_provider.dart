@@ -18,6 +18,7 @@ class PermissionsNotifier extends StateNotifier<PermissionsState> {
       Permission.location.status,
       Permission.locationAlways.status,
       Permission.locationWhenInUse.status,
+      Permission.bluetooth.status,
     ]);
 
     state = state.copywith(
@@ -27,7 +28,16 @@ class PermissionsNotifier extends StateNotifier<PermissionsState> {
       location: permissionsArray[3],
       locationAlwayss: permissionsArray[4],
       locationWhenInUsee: permissionsArray[5],
+      bluetooth: permissionsArray[6],
     );
+  }
+
+  requestBluetoothAccess() async {
+    final status = await Permission.bluetooth.request();
+    state = state.copywith(bluetooth: status);
+    if (status == PermissionStatus.permanentlyDenied) {
+      openAppSettings();
+    }
   }
 
   requestCameraAccess() async {
@@ -39,7 +49,7 @@ class PermissionsNotifier extends StateNotifier<PermissionsState> {
   }
 
   requestGaleryAccess() async {
-    final status = await Permission.accessMediaLocation.request();
+    final status = await Permission.photos.request();
     state = state.copywith(photoLibrary: status);
     if (status == PermissionStatus.permanentlyDenied) {
       openAppSettings();
@@ -70,6 +80,7 @@ class PermissionsState {
   final PermissionStatus location;
   final PermissionStatus locationAlwayss;
   final PermissionStatus locationWhenInUsee;
+  final PermissionStatus bluetooth;
 
   PermissionsState({
     this.camera = PermissionStatus.denied,
@@ -78,7 +89,12 @@ class PermissionsState {
     this.location = PermissionStatus.denied,
     this.locationAlwayss = PermissionStatus.denied,
     this.locationWhenInUsee = PermissionStatus.denied,
+    this.bluetooth = PermissionStatus.denied,
   });
+
+  get bluetoothGranted {
+    return bluetooth == PermissionStatus.granted;
+  }
 
   get cameraGranted {
     return camera == PermissionStatus.granted;
@@ -111,6 +127,7 @@ class PermissionsState {
     PermissionStatus? location,
     PermissionStatus? locationAlwayss,
     PermissionStatus? locationWhenInUsee,
+    PermissionStatus? bluetooth,
   }) =>
       PermissionsState(
         camera: camera ?? this.camera,
@@ -119,5 +136,6 @@ class PermissionsState {
         location: location ?? this.location,
         locationAlwayss: locationAlwayss ?? this.locationAlwayss,
         locationWhenInUsee: locationWhenInUsee ?? this.locationWhenInUsee,
+        bluetooth: bluetooth ?? this.bluetooth,
       );
 }

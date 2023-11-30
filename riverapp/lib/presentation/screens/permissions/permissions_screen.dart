@@ -56,6 +56,13 @@ class _PermissionsView extends ConsumerWidget {
             onChanged: (_) {
               ref.read(permissionsProvider.notifier).requestGaleryAccess();
             }),
+        CheckboxListTile(
+            value: permissions.bluetoothGranted,
+            title: const Text('Bluetooth'),
+            subtitle: Text('${permissions.bluetooth}'),
+            onChanged: (_) {
+              ref.read(permissionsProvider.notifier).requestBluetoothAccess();
+            }),
       ],
     );
   }

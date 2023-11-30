@@ -1,16 +1,27 @@
 import 'package:dio/dio.dart';
 
 class PokemonService {
-  static Future<String> getPokemonName(int pokemonId) async {
+  static Future<Pokemon> getPokemon(int pokemonId) async {
     final dio = Dio();
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
 
     try {
       final response =
           await dio.get('https://pokeapi.co/api/v2/pokemon/$pokemonId');
-      return response.data['name'] ?? 'Name not found';
+      final name = response.data['name'] ?? 'Name not found';
+      final imageUrl =
+          response.data['sprites']['front_default'] ?? 'Image not found';
+
+      return Pokemon(name: name, imageUrl: imageUrl);
     } catch (e) {
-      throw 'Name Api Pokemon not found';
+      throw 'Pokemon data not found';
     }
   }
+}
+
+class Pokemon {
+  final String name;
+  final String imageUrl;
+
+  Pokemon({required this.name, required this.imageUrl});
 }

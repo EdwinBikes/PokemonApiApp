@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:riverapp/presentation/presentation.dart';
 
 class TodosScreen extends ConsumerWidget {
@@ -13,7 +14,11 @@ class TodosScreen extends ConsumerWidget {
       ),
       body: const _TodosView(),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        backgroundColor: Colors.cyan,
+        child: const Icon(
+          Icons.add,
+          color: Colors.red,
+        ),
         onPressed: () {
           ref.read(todosProvider.notifier).addTodo();
         },
@@ -36,9 +41,13 @@ class _TodosView extends ConsumerWidget {
             index]; // sirve para mantener la refenecia del todo, mas no consume memoria
 
         return SwitchListTile(
-            title: Text(todo.description),
-            value: todo.done, // True o False
-            onChanged: (value) {});
+            title: Text(
+              todo.description,
+              style: GoogleFonts.blackOpsOne(fontSize: 25, color: Colors.cyan),
+            ),
+            value: todo.done,
+            onChanged: (value) {},
+            activeColor: Colors.red);
       },
     );
   }

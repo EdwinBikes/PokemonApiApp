@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:riverapp/presentation/presentation.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,43 +21,7 @@ class _HomeScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: const [
-        _CustomListTile(
-          title: "Nombres Aleatorios",
-          subTitle: "State provider",
-          location: "/state-provider",
-        ),
-        _CustomListTile(
-          title: "Nombres Pokemons API",
-          subTitle: "Future Provider",
-          location: "/future-provider",
-        ),
-        _CustomListTile(
-          title: "Nombres de personas Random",
-          subTitle: "Stream provider",
-          location: "/stream-provider",
-        ),
-        _CustomListTile(
-          title: "State notifier Provider",
-          subTitle: "State provider personalizado",
-          location: "/state-notifier-provider",
-        ),
-        _CustomListTile(
-          title: "Permisos de la aplicacion",
-          subTitle: "Solicitar permisos (cámara),(gps),(bluetooth)...",
-          location: "/permissions-screen",
-        ),
-        ListTile(
-          leading: Icon(Icons.web_stories_outlined),
-          title: Text('Edwin Bikes',
-              style: TextStyle(fontSize: 14, color: Colors.black)),
-          subtitle: Text('Sigueme en mis Redes',
-              style: TextStyle(fontSize: 12, color: Colors.grey)),
-          trailing: Icon(Icons.arrow_forward_ios_rounded),
-        )
-      ],
-    );
+    return ListView(children: const [HomeWidgets()]);
   }
 }
 
@@ -77,3 +42,41 @@ class _CustomListTile extends StatelessWidget {
     );
   }
 }
+
+
+
+// const [
+//         _CustomListTile(
+//           title: "Nombres Aleatorios",
+//           subTitle: "State provider",
+//           location: "/state-provider",
+//         ),
+//         _CustomListTile(
+//           title: "Nombres Pokemons API",
+//           subTitle: "Future Provider",
+//           location: "/future-provider",
+//         ),
+//         _CustomListTile(
+//           title: "Nombres de personas Random",
+//           subTitle: "Stream provider",
+//           location: "/stream-provider",
+//         ),
+//         _CustomListTile(
+//           title: "State notifier Provider",
+//           subTitle: "State provider personalizado",
+//           location: "/state-notifier-provider",
+//         ),
+//         _CustomListTile(
+//           title: "Permisos de la aplicacion",
+//           subTitle: "Solicitar permisos (cámara),(gps),(bluetooth)...",
+//           location: "/permissions-screen",
+//         ),
+//         ListTile(
+//           leading: Icon(Icons.web_stories_outlined),
+//           title: Text('Edwin Bikes',
+//               style: TextStyle(fontSize: 14, color: Colors.black)),
+//           subtitle: Text('Sigueme en mis Redes',
+//               style: TextStyle(fontSize: 12, color: Colors.grey)),
+//           trailing: Icon(Icons.arrow_forward_ios_rounded),
+//         )
+//       ],

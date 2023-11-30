@@ -5,7 +5,7 @@ final pokemonIdProvider = StateProvider<int>((ref) {
   return 1;
 });
 
-final pokemonNameProvider = FutureProvider.family<String, int>((ref, id) async {
-  final name = await PokemonService.getPokemonName(id);
-  return name;
+final pokemonProvider = FutureProvider.family<Pokemon, int>((ref, id) async {
+  final pokemon = await PokemonService.getPokemon(id);
+  return pokemon;
 });
