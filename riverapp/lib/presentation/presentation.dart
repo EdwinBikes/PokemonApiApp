@@ -3,6 +3,7 @@ export 'providers/permissions/permissions_provider.dart';
 export 'providers/pokemon_provider.dart';
 export 'providers/random_name_provider.dart';
 export 'providers/random_names_provider.dart';
+export 'providers/sensors/gyroscope_provider.dart';
 export 'providers/todos_provider.dart';
 export 'screens/future_provider.dart/pokemon_screen.dart';
 export 'screens/home/home_screen.dart';
