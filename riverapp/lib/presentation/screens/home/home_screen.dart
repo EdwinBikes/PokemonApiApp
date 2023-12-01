@@ -20,10 +20,16 @@ class _HomeScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: [
-        HomeWidgets(),
-      ],
+    return const SafeArea(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: 16.0), // Ajusta el valor según sea necesario
+        child: CustomScrollView(
+          slivers: [
+            HomeWidgets(),
+          ],
+        ),
+      ),
     );
   }
 }

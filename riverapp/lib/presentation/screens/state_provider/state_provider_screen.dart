@@ -7,11 +7,13 @@ class StateProviderScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final titleStyle = Theme.of(context).textTheme.titleMedium;
+    final titleStyle = Theme.of(context).textTheme.titleLarge;
     final name = ref.watch(randomNameProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text("State Provider")),
+      appBar: AppBar(
+        title: const Text("State Provider"),
+      ),
       body: Center(
         child: Text(
           name,
@@ -25,7 +27,7 @@ class StateProviderScreen extends ConsumerWidget {
             //     .read(randomNameProvider.notifier)
             //     .update((state) => state.toLowerCase());
           },
-          child: const Icon(Icons.abc_rounded)),
+          child: const Icon(Icons.find_replace_rounded)),
     );
   }
 }

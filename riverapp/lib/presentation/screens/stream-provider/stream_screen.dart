@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:riverapp/presentation/presentation.dart';
 
 class StreamScreen extends ConsumerWidget {
@@ -21,7 +22,12 @@ class StreamScreen extends ConsumerWidget {
       appBar: AppBar(title: const Text('Stream Provider')),
       body: randomNames$.when(
           data: (data) => Center(
-                child: Text(data),
+                child: Text(
+                  data,
+                  style: GoogleFonts.farro(
+                    fontSize: 20,
+                  ),
+                ),
               ),
           error: ((error, stackTrace) => Text('Error $error')),
           loading: () => const Center(

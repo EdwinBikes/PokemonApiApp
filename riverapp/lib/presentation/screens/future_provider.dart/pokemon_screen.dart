@@ -27,7 +27,7 @@ class PokemonScreen extends ConsumerWidget {
                 placeholder: (context, url) =>
                     const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
-                height: 300,
+                height: 200,
                 fit: BoxFit.cover,
               ),
               Text(

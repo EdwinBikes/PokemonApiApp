@@ -14,7 +14,7 @@ final menuItems = <MenuItem>[
   MenuItem(
       title: 'Nombres Aleatorios', icon: Icons.abc, route: '/state-provider'),
   MenuItem(
-      title: 'Nombres ramdom',
+      title: 'Nombres Automaticos',
       icon: Icons.logo_dev_outlined,
       route: '/stream-provider'),
   MenuItem(
