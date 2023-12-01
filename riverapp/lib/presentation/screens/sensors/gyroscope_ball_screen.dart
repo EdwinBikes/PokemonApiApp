@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class GyroscopeBallScreen extends StatelessWidget {
+class GyroscopeBallScreen extends ConsumerWidget {
   const GyroscopeBallScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('giroscopio de balon'),
